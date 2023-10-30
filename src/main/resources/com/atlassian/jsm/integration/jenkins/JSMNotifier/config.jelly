@@ -1,0 +1,44 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+           <f:entry title="Enable Sending Alerts">
+                <f:checkbox field="enable" value="false" checked="${instance.isDisable()}"/>
+           </f:entry>
+            <f:entry title="Notify Build Start">
+                <f:checkbox field="notifyBuildStart" value="true" checked="${instance.isNotifyBuildStart()}"/>
+            </f:entry>
+
+
+
+             <f:advanced>
+                    <f:entry title="Integration API Key" field="apiKey">
+                       <f:password value="${instance.getApiKey()}" />
+                   </f:entry>
+                   <f:entry title="Tags" field="tags">
+                    <f:textbox field="tags" value="${instance.getTags()}" />
+                   </f:entry>
+                   <f:entry title="Teams" field="teams">
+                       <f:textbox name="teams" value="${instance.getTeams()}" />
+                   </f:entry>
+                <f:entry title="Priority" field="alertPriority">
+                     <select class="setting-input" name="alertPriority">
+                         <j:forEach var="i" items="${instance.ALERT_PRIORITIES}">
+                             <f:option selected="${instance.getAlertPriority()==i}" value="${i.getValue()}">${i.getDisplayName()}</f:option>
+                         </j:forEach>
+                     </select>
+                 </f:entry>
+
+                 <f:entry title="Build Start Alert's Priority" field="buildStartAlertPriority">
+                      <select class="setting-input" name="buildStartAlertPriority">
+                          <j:forEach var="i" items="${instance.ALERT_PRIORITIES}">
+                              <f:option selected="${instance.getNotifyBuildStartPriority()==i}" value="${i.getValue()}">${i.getDisplayName()}</f:option>
+                          </j:forEach>
+                      </select>
+                  </f:entry>
+
+                    <f:entry title="Integration API Url" field="apiUrl">
+                          <f:textbox name="apiUrl" value="${instance.getApiUrl()}" />
+                   </f:entry>
+
+             </f:advanced>
+</j:jelly>
