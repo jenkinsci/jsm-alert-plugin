@@ -1,32 +1,28 @@
+# Jenkins integration plugin for Jira Service Management
 
-# Jira Service Management Integration Jenkins Plugin
+Use the Jenkins plugin to integrate with Jira Service Management and forward Jenkins build alerts. Jira Service Management determines the right people to notify based on their on-call schedules, notifies them via email, text messages (SMS), phone calls, and mobile push notifications (both iOS and Android), and escalates alerts until they’re acknowledged or closed.
 
-[![Atlassian license](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat-square)](LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
+:warning: If the feature isn’t available on your site, keep checking Jira Service Management for updates.
 
-Use JSM Jenkins Integration to forward Jenkins build alerts to Jira Service Management. JSM determines the right people to notify based on on-call schedules– notifies via email, text messages (SMS), phone calls, and iOS & Android push notifications, and escalates alerts until the alert is acknowledged or closed.
-
-## Installation and Tests
-
-[Install Maven](https://github.com/jenkinsci/workflow-plugin) and JDK.
+## Steps to install and test
+1. Install Maven and the JDK.
 ```
 $ mvn -version | grep -v home
 Apache Maven 3.5.0 (; 2017-04-03T22:39:06+03:00)
 Java version: 1.8.0_131, vendor: Oracle Corporation
 Default locale: en_US, platform encoding: UTF-8
 ```
-Create an HPI file to install in Jenkins (HPI file will be in
-`target/jsm-integration.hpi`).
-
-    mvn hpi:hpi
+2. Create an HPI file to install the plugin in Jenkins. <br>
+The HPI file is found at `target/jsm-integration.hpi`.
+```
+mvn hpi:hpi
+```
 
 ## Contributions
-
-Contributions to Jira Service Management Integration Jenkins Plugin are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+Contributions to Jira Service Management Integration Jenkins Plugin are welcome! Read how to contribute to the project in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
-
-Copyright (c) [2023] Atlassian US., Inc.
-Apache 2.0 licensed, see [LICENSE](LICENSE) file.
+Copyright (c) [2023] Atlassian US., Inc. Apache 2.0 licensed. [View the LICENSE](LICENSE) file.
 
 <br/>
 

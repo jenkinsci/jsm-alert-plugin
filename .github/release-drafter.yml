@@ -1,0 +1,2 @@
+_extends: .github
+tag-template: jsm-alert-$NEXT_MINOR_VERSION
