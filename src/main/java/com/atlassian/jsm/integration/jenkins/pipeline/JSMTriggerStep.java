@@ -20,7 +20,6 @@ import javax.inject.Inject;
 
 public class JSMTriggerStep extends AbstractStepImpl {
 
-    @Nonnull
     private boolean enable;
     private boolean notifyBuildStart;
     private String tags;
@@ -145,15 +144,8 @@ public class JSMTriggerStep extends AbstractStepImpl {
         protected String run() throws Exception {
             // default to global config values if not set in step, but allow step to
             // override all global settings
-            Jenkins jenkins;
-            try {
-                jenkins = Jenkins.getInstance();
-            } catch (NullPointerException ne) {
-                listener.error("ERROR?!");
-                return null;
-            }
+            Jenkins jenkins = Jenkins.get();
             JSMNotifier.DescriptorImpl ogDesc = jenkins.getDescriptorByType(JSMNotifier.DescriptorImpl.class);
-
 
             // This variables for override the fields if they are not empty
             String tagsGiven = Util.fixNull(step.tags).isEmpty() ? ogDesc.getTags() : step.tags;

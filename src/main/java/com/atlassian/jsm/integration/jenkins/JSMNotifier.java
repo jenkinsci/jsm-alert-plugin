@@ -8,16 +8,14 @@ import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.BuildStepMonitor;
 import hudson.tasks.Notifier;
 import hudson.tasks.Publisher;
-
 import hudson.util.Secret;
 import net.sf.json.JSONObject;
-
 import org.apache.commons.lang.StringUtils;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.export.Exported;
 
-import java.io.IOException;
+import java.util.List;
 
 public class JSMNotifier extends Notifier {
     private static final String DEFAULT_API_URL = "https://api.atlassian.com/";
@@ -60,7 +58,7 @@ public class JSMNotifier extends Notifier {
     }
 
     @Override
-    public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener) throws InterruptedException, IOException {
+    public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener) {
         if (!isEnable()) {
             return true;
         }
@@ -70,8 +68,7 @@ public class JSMNotifier extends Notifier {
     }
 
     private JSMNotificationService createJSMNotificationService(AbstractBuild<?, ?> build, BuildListener listener) {
-
-        // This variables for override the fields if they are not empty
+        // These variables for override the fields if they are not empty
         String tagsGiven = Util.fixNull(tags).isEmpty() ? getDescriptor().getTags() : tags;
         String teamsGiven = Util.fixNull(teams).isEmpty() ? getDescriptor().getTeams() : teams;
 
@@ -160,6 +157,11 @@ public class JSMNotifier extends Notifier {
     @Exported
     public AlertPriority getAlertPriority() {
         return alertPriority;
+    }
+
+    @Exported
+    public List<AlertPriority> getAlertPriorities() {
+        return List.of(AlertPriority.values());
     }
 
     @Extension

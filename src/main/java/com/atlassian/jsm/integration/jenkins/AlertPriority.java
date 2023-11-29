@@ -7,8 +7,8 @@ public enum  AlertPriority {
     P4("P4", "P4-Low"),
     P5("P5", "P5-Informational");
 
-    private String value;
-    private String displayName;
+    private final String value;
+    private final String displayName;
 
     AlertPriority(String value, String displayName) {
         this.value = value;

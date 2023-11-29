@@ -22,7 +22,7 @@
                    </f:entry>
                 <f:entry title="Priority" field="alertPriority">
                      <select class="setting-input" name="alertPriority">
-                         <j:forEach var="i" items="${instance.ALERT_PRIORITIES}">
+                         <j:forEach var="i" items="${instance.getAlertPriorities()}">
                              <f:option selected="${instance.getAlertPriority()==i}" value="${i.getValue()}">${i.getDisplayName()}</f:option>
                          </j:forEach>
                      </select>
@@ -30,7 +30,7 @@
 
                  <f:entry title="Build Start Alert's Priority" field="buildStartAlertPriority">
                       <select class="setting-input" name="buildStartAlertPriority">
-                          <j:forEach var="i" items="${instance.ALERT_PRIORITIES}">
+                          <j:forEach var="i" items="${instance.getAlertPriorities()}">
                               <f:option selected="${instance.getNotifyBuildStartPriority()==i}" value="${i.getValue()}">${i.getDisplayName()}</f:option>
                           </j:forEach>
                       </select>
