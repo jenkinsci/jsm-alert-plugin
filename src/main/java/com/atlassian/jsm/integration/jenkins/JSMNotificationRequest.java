@@ -4,6 +4,9 @@ import hudson.model.Run;
 import hudson.model.TaskListener;
 
 public class JSMNotificationRequest {
+
+    // For details, see: https://github.com/jenkins-infra/jenkins-codeql/blob/main/src/PlaintextPasswordStorage.md
+    @SuppressWarnings("lgtm[jenkins/plaintext-storage]")
     private String apiKey;
     private String apiUrl;
     private AlertProperties alertProperties;
