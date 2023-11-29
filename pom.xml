@@ -9,11 +9,11 @@
     </parent>
     <groupId>io.jenkins.plugins</groupId>
     <artifactId>jsm-alert</artifactId>
-    <version>${revision}${changelist}</version>
+<!--Versioning is fully automated. See "Fully automated versioning (optional)" section in https://www.jenkins.io/doc/developer/publishing/releasing-cd/-->
+    <version>${changelist}</version>
     <packaging>hpi</packaging>
     <properties>
-        <revision>0.1</revision>
-        <changelist>-SNAPSHOT</changelist>
+        <changelist>999999-SNAPSHOT</changelist>
         <jenkins.version>2.387.3</jenkins.version>
         <java.level>17</java.level>
         <gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>    </properties>
