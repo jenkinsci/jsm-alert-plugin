@@ -23,7 +23,3 @@ Contributions to Jira Service Management Integration Jenkins Plugin are welcome!
 
 ## License
 Copyright (c) [2023] Atlassian US., Inc. Apache 2.0 licensed. [View the LICENSE](LICENSE) file.
-
-<br/>
-
-[![With ❤️ from Atlassian](https://raw.githubusercontent.com/atlassian-internal/oss-assets/master/banner-cheers.png)](https://www.atlassian.com)
